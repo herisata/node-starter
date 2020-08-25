@@ -9,6 +9,6 @@
     "lib": ["es6", "dom"],
     "esModuleInterop": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*.ts"],
   "exclude": ["dist", "build", "node_modules"]
 }
