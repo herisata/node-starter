@@ -1,13 +1,23 @@
 {
   "compilerOptions": {
     "target": "es6",
+    "lib": ["es6"],
+    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
     "module": "commonjs",
+    "pretty": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "noEmit": false,
+    "esModuleInterop": true,
     "rootDir": "src",
     "outDir": "build",
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "lib": ["es6", "dom"],
-    "esModuleInterop": true
+    "baseUrl": "src",
+    "resolveJsonModule": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["dist", "build", "node_modules"]
