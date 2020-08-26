@@ -9,25 +9,21 @@ services:
     ports:
       - '4000:4000'
     env_file:
-      - ./app/.env.dev
+      - ./app/.env
   mariadb:
     image: mariadb:10.4
     restart: on-failure
     volumes:
       - ./mariadb/data:/var/lib/mysql
       - ./mariadb/init.sql:/data/app/init.sql
-    environment:
-      MYSQL_ROOT_PASSWORD: azerty
-      MYSQL_DATABASE: classicmodels
-      MYSQL_USER: herisata
-      MYSQL_PASSWORD: herisata
+    env_file:
+      - ./mariadb/.env
     command: 'mysqld --init-file /data/app/init.sql'
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     ports:
-      - 4080:80
-    environment:
-      - PMA_ARBITRARY=1
-      - PMA_HOST=mariadb
+      - 4001:80
+    env_file:
+      - ./.env
     depends_on:
       - mariadb
