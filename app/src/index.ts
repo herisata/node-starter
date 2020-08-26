@@ -1,6 +1,8 @@
 import express from 'express';
-import config from './config';
-import loaders from './loaders';
+import 'reflect-metadata'; // for typeorm
+
+import config from 'config';
+import loaders from 'loaders';
 
 async function startServer() {
   const app = express();

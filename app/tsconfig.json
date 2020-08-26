@@ -15,7 +15,6 @@
     "noEmit": false,
     "esModuleInterop": true,
     "rootDir": "./src/",
-    "outDir": "build",
     "baseUrl": "./src/",
     "resolveJsonModule": true
   },
