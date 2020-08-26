@@ -1,3 +1,4 @@
+// Environment variables and configuration related stuff
 import dotenv from 'dotenv';
 
 // Set the NODE_ENV to 'development' by default

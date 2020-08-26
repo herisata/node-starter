@@ -14,9 +14,9 @@
     "allowJs": true,
     "noEmit": false,
     "esModuleInterop": true,
-    "rootDir": "src",
+    "rootDir": "./src/",
     "outDir": "build",
-    "baseUrl": "src",
+    "baseUrl": "./src/",
     "resolveJsonModule": true
   },
   "include": ["src/**/*.ts"],

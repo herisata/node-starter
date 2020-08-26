@@ -1,9 +1,20 @@
 import express from 'express';
 import config from './config';
+import loaders from './loaders';
 
-const app = express();
-const PORT = config.api.port;
-app.get('/', (req, res) => res.send('Express + TypeScript Server'));
-app.listen(PORT, () => {
-  console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
-});
+async function startServer() {
+  const app = express();
+  const PORT = config.api.port;
+
+  await loaders.init({ expressApp: app });
+
+  app.listen(PORT, (err) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
+  });
+}
+
+startServer();
