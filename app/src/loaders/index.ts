@@ -3,11 +3,12 @@ import { InversifyExpressServer } from 'inversify-express-utils';
 
 import expressLoader from './express';
 import databaseLoader from './database';
-import container from './inversify';
+import inversifyLoader from './inversify';
 import Logger from './logger';
 
 export default {
   initServer: async (): Promise<InversifyExpressServer> => {
+    Logger.info('↻ Database loading...');
     await databaseLoader();
     Logger.info('✌️ Database loaded');
 
@@ -16,6 +17,11 @@ export default {
     // ... Initialize database
     // ... or Redis, or whatever you want
 
+    Logger.info('↻ Inversify loading...');
+    const container = await inversifyLoader();
+    Logger.info('✌️ Inversify loaded');
+
+    Logger.info('↻ Express loading...');
     const server = expressLoader({ container });
     Logger.info('✌️ Express loaded');
 

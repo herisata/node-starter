@@ -1,5 +1,9 @@
 const TYPES = {
-  //   ExampleRepository: Symbol('ExampleRepository'),
+  // repositories
+  PublicProfileRepository: Symbol('PublicProfileRepository'),
+
+  // services
+  ProfileService: Symbol('ProfileService'),
 };
 
 export default TYPES;

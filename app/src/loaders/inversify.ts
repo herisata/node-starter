@@ -1,14 +1,26 @@
-import { Container } from 'inversify';
-// import { interfaces, TYPE } from 'inversify-express-utils';
+import { AsyncContainerModule, Container } from 'inversify';
+import { Repository, getRepository } from 'typeorm';
 
-// import TYPES from 'constants/types';
-// import { ExampleRepository } from 'repositories/ExampleRepository';
+import { PublicProfiles } from 'entities/PublicProfiles';
+import TYPES from 'constants/types';
+import { ProfileService, ProfileServiceImpl } from 'services/ProfileService';
 
 // !IMPORTANT: import each controller once in order to enable Inversion of Control
 import 'controllers/HealthController';
 import 'controllers/IndexController';
 
-const container = new Container();
+const repositoryModule = new AsyncContainerModule(async (bind) => {
+  // repository
+  bind<Repository<PublicProfiles>>(TYPES.PublicProfileRepository).toDynamicValue(() => getRepository(PublicProfiles));
+});
 
-// container.bind<ExampleRepository>(TYPES.ExampleRepository).to(ExampleRepository).inSingletonScope();
-export default container;
+const serviceModule = new AsyncContainerModule(async (bind) => {
+  // services
+  bind<ProfileService>(TYPES.ProfileService).to(ProfileServiceImpl);
+});
+
+export default async (): Promise<Container> => {
+  const container = new Container();
+  await container.loadAsync(repositoryModule, serviceModule);
+  return container;
+};
