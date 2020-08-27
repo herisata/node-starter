@@ -1,7 +1,7 @@
 import { Column, Entity, Index } from 'typeorm';
 
 @Index('index_keywords_themes_on_theme_id_and_keyword_id', ['themeId', 'keywordId'], { unique: true })
-@Entity('keywords_themes')
+// @Entity('keywords_themes')
 export class KeywordsThemes {
   @Column('int', { name: 'keyword_id' })
   keywordId: number;

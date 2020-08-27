@@ -1,6 +1,6 @@
 import { Column, Entity } from 'typeorm';
 
-@Entity('engine_join_objectives')
+// @Entity('engine_join_objectives')
 export class EngineJoinObjectives {
   @Column('int', { name: 'engine_id', nullable: true })
   engineId: number | null;
