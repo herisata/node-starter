@@ -3,7 +3,6 @@ import cors from 'cors';
 import express from 'express';
 
 import routes from 'api';
-import config from 'config';
 
 export default async ({ app }: { app: express.Application }): Promise<express.Application> => {
   // Useful if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
@@ -17,7 +16,7 @@ export default async ({ app }: { app: express.Application }): Promise<express.Ap
   app.use(bodyParser.json());
 
   // Load API routes
-  app.use(config.api.prefix, routes());
+  app.use('/', routes());
 
   /// catch 404 and forward to error handler
   app.use((req, res, next) => {

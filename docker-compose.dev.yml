@@ -1,3 +1,5 @@
+# NOT REALLY NEEDED, BUT MAY BE USEFUL LATER ON
+# you can run `npm run start:dev` directly inside app
 version: '3'
 services:
   app:
@@ -10,20 +12,3 @@ services:
       - '4000:4000'
     env_file:
       - ./app/.env
-  mariadb:
-    image: mariadb:10.4
-    restart: on-failure
-    volumes:
-      - ./mariadb/data:/var/lib/mysql
-      - ./mariadb/init.sql:/data/app/init.sql
-    env_file:
-      - ./mariadb/.env
-    command: 'mysqld --init-file /data/app/init.sql'
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
-    ports:
-      - 4001:80
-    env_file:
-      - ./.env
-    depends_on:
-      - mariadb

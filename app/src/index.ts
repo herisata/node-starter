@@ -3,6 +3,7 @@ import 'reflect-metadata'; // for typeorm
 
 import config from 'config';
 import loaders from 'loaders';
+import { getConnection } from 'typeorm';
 
 async function startServer() {
   const app = express();
@@ -16,6 +17,9 @@ async function startServer() {
       return;
     }
     console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
+
+    // for testing db connection
+    // getConnection().createQueryRunner().query('show tables;').then(console.log);
   });
 }
 
