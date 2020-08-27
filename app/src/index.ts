@@ -1,17 +1,16 @@
-import express from 'express';
-import 'reflect-metadata'; // for typeorm
+import 'reflect-metadata'; // for typeorm & inversify
 
 import config from 'config';
 import loaders from 'loaders';
-import { getConnection } from 'typeorm';
+// import { getConnection } from 'typeorm';
 
 async function startServer() {
-  const app = express();
   const PORT = config.api.port;
 
-  await loaders.init({ expressApp: app });
+  // load everything the app needs
+  const server = await loaders.initServer();
 
-  app.listen(PORT, (err) => {
+  server.build().listen(PORT, (err) => {
     if (err) {
       console.error(err);
       return;
