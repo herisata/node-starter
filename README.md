@@ -11,6 +11,10 @@ MariaDB
 PhpMyAdmin  
 [`classicmodels` sample database](https://www.mysqltutorial.org/mysql-sample-database.aspx/)
 
+# Important
+
+**Don't forget to connect to the VPN before running the app**, it's necessary in order to reach the database.
+
 # To run:
 
 ## I. If you only need to connect to the online database
