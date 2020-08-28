@@ -50,3 +50,11 @@ PhpMyAdmin
 app (node, express) at `localhost:4000`  
 mariadb at `mariadb:3306` (optionnal)  
 phpmyadmin at `localhost:4080` (optionnal)
+
+# TODO:
+
+- [ ] Enforce ESLint/Prettier styling (maybe airbnb)
+- [ ] Remove unneeded entities
+- [ ] Set up `express-validation` to handle request params validation
+- [ ] Better handling of the logger (should load in `loaders` but accessible from `utils`)
+- [ ] Put documentations on used design patterns : IoC, Data Mapper, Loader, 3-layers,...
