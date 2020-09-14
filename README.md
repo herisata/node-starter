@@ -60,3 +60,8 @@ phpmyadmin at `localhost:4080` (optionnal)
 - [ ] Put documentations on used design patterns : IoC, Data Mapper, Loader, 3-layers,...
 - [ ] Create a custom repository for example
 - [ ] How to deploy the app?
+- [ ] Integrate jest
+- [ ] Simulate a view
+- [ ] Write doc on each important folder
+- [ ] How to's
+- [x] Document folder structure
