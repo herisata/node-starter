@@ -15,7 +15,7 @@ export class ProjectController implements interfaces.Controller {
   }
 
   /**
-   * http://localhost:4000/profiles?start=0&count=10
+   * http://localhost:4000/projects?start=0&count=10
    */
   @httpGet('/')
   public async getProfilesList(
@@ -33,6 +33,12 @@ export class ProjectController implements interfaces.Controller {
     }
   }
 
+  /**
+   * http://localhost:4000/projects/archive
+   * {
+   *    "id": "12"
+   * }
+   */
   @httpPost('/archive')
   public async archiveProject(@requestBody() body: { id: string }, @response() res: Response): Promise<void> {
     try {
