@@ -14,3 +14,7 @@
 
 - delegate business logic to the service layer
 - handle HTTP request mapping and response codes here
+
+# IMPORTANT:
+
+## All controllers should be declared once in /loaders/inversify for express to recognize it
