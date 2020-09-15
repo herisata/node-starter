@@ -56,7 +56,7 @@ phpmyadmin at `localhost:4080` (optionnal)
 - [x] Enforce ESLint/Prettier styling ~~(maybe airbnb)~~ (wired up husky instead)
 - [ ] Remove unneeded entities
 - [ ] Set up `express-validation` to handle request params validation
-- [ ] Better handling of the logger (should load in `loaders` but accessible from `utils`)
+- [x] Better handling of the logger (should load in `loaders` but accessible from `utils`)
 - [x] Put documentations on used design patterns : IoC, Data Mapper, Loader, 3-layers,...
 - [x] Create a custom repository for example => [here](app/src/repositories/AdminUsersRepository.ts)
 - [ ] How to deploy the app?

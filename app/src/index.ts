@@ -7,6 +7,7 @@ import { Logger } from 'utils/logger';
 async function startServer() {
   try {
     const PORT = config.api.port;
+    Logger.info('⚡️[server]: Starting server...');
 
     // load everything the app needs
     const server = await loaders.initServer();
