@@ -58,7 +58,7 @@ phpmyadmin at `localhost:4080` (optionnal)
 - [ ] Set up `express-validation` to handle request params validation
 - [ ] Better handling of the logger (should load in `loaders` but accessible from `utils`)
 - [x] Put documentations on used design patterns : IoC, Data Mapper, Loader, 3-layers,...
-- [ ] Create a custom repository for example
+- [x] Create a custom repository for example => [here](app/src/repositories/AdminUsersRepository.ts)
 - [ ] How to deploy the app?
 - [ ] Integrate jest
 - [ ] Simulate a view

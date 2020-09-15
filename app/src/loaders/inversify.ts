@@ -1,11 +1,12 @@
 import { AsyncContainerModule, Container } from 'inversify';
-import { Repository, getRepository } from 'typeorm';
+import { Repository, getRepository, getCustomRepository } from 'typeorm';
 
 import { PublicProfiles } from 'entities/PublicProfiles';
 import { Projects } from 'entities/Projects';
 import TYPES from 'constants/types';
 import { ProfileService, ProfileServiceImpl } from 'services/ProfileService';
 import { ProjectService, ProjectServiceImpl } from 'services/ProjectServices';
+import { AdminUserRepository, AdminUserRepositoryImpl } from 'repositories/AdminUsersRepository';
 
 // !IMPORTANT: import each controller once in order to enable Inversion of Control
 import 'controllers/HealthController';
@@ -16,6 +17,9 @@ const repositoryModule = new AsyncContainerModule(async (bind) => {
   // repository
   bind<Repository<PublicProfiles>>(TYPES.PublicProfileRepository).toDynamicValue(() => getRepository(PublicProfiles));
   bind<Repository<Projects>>(TYPES.ProjectRepository).toDynamicValue(() => getRepository(Projects));
+  bind<AdminUserRepository>(TYPES.AdminUserRepository).toDynamicValue(() =>
+    getCustomRepository(AdminUserRepositoryImpl),
+  );
 });
 
 const serviceModule = new AsyncContainerModule(async (bind) => {
