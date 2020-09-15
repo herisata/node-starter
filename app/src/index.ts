@@ -15,7 +15,7 @@ async function startServer() {
       console.error(err);
       return;
     }
-    console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
+    console.log(`⚡️[server]: Server is running at http://localhost:${PORT}`);
 
     // for testing db connection
     // getConnection().createQueryRunner().query('show tables;').then(console.log);
