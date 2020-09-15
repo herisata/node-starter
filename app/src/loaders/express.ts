@@ -3,6 +3,8 @@ import { interfaces } from 'inversify';
 import cors from 'cors';
 import { InversifyExpressServer } from 'inversify-express-utils';
 
+import { Logger } from 'utils/logger';
+
 export default async ({ container }: { container: interfaces.Container }): Promise<InversifyExpressServer> => {
   const server = new InversifyExpressServer(container);
 
@@ -47,7 +49,7 @@ export default async ({ container }: { container: interfaces.Container }): Promi
       });
     });
     app.use((err, req, res, next) => {
-      console.error(err.stack);
+      Logger.error(err.stack);
       res.status(500).send('Something broke!');
     });
   });
