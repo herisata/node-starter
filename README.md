@@ -61,7 +61,6 @@ phpmyadmin at `localhost:4080` (optionnal)
 - [x] Create a custom repository for example => [here](app/src/repositories/AdminUsersRepository.ts)
 - [ ] How to deploy the app?
 - [x] Integrate jest
-- [ ] Simulate a view
 - [x] Document project structure
 - [x] Document migrations
 - [x] How to create an endpoint => [here](app/src/controllers/)
