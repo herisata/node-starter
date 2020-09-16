@@ -1,10 +1,13 @@
 import { Response } from 'express';
 import { interfaces, controller, response, httpPost, requestBody, httpGet, queryParam } from 'inversify-express-utils';
 import { inject } from 'inversify';
+import { validate } from 'express-validation';
 
 import TYPES from 'constants/types';
 import { ProjectService } from 'services/ProjectServices';
 import { Projects } from 'entities/Projects';
+
+import validations from './validations';
 
 @controller('/projects')
 export class ProjectController implements interfaces.Controller {
@@ -40,7 +43,7 @@ export class ProjectController implements interfaces.Controller {
    *    "id": "12"
    * }
    */
-  @httpPost('/archive')
+  @httpPost('/archive', validate(validations.projects.archive))
   public async archiveProject(@requestBody() body: { id: string }, @response() res: Response): Promise<void> {
     try {
       await this._projectService.archive(body.id).catch((reason) => {

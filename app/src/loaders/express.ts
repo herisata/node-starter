@@ -2,6 +2,7 @@ import bodyParser from 'body-parser';
 import { interfaces } from 'inversify';
 import cors from 'cors';
 import { InversifyExpressServer } from 'inversify-express-utils';
+import { ValidationError } from 'express-validation';
 
 import { Logger } from 'utils/logger';
 
@@ -43,6 +44,9 @@ export default async ({ container }: { container: interfaces.Container }): Promi
        */
       if (err.name === 'UnauthorizedError') {
         return res.status(err.status).send({ message: err.message }).end();
+      }
+      if (err instanceof ValidationError) {
+        return res.status(err.statusCode).json(err);
       }
       return next(err);
     });
