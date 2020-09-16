@@ -62,6 +62,7 @@ phpmyadmin at `localhost:4080` (optionnal)
 - [ ] How to deploy the app?
 - [ ] Integrate jest
 - [ ] Simulate a view
-- [x] Write doc on each important folder
+- [x] Document project structure
+- [x] Document migrations
 - [x] How to create an endpoint => [here](app/src/controllers/)
 - [x] Document folder structure
