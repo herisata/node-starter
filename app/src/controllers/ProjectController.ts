@@ -23,13 +23,14 @@ export class ProjectController implements interfaces.Controller {
     @queryParam('start') _start: number,
     @queryParam('count') _count: number,
   ): Promise<Projects[]> {
-    const start = _start || 0,
-      count = _count || 10;
+    const start = _start || 0;
+    const count = _count || 10;
     try {
       return this._projectService.find(start, count);
     } catch (e) {
       res.status(500);
       res.send(e.message);
+      return [];
     }
   }
 
@@ -43,7 +44,7 @@ export class ProjectController implements interfaces.Controller {
   public async archiveProject(@requestBody() body: { id: string }, @response() res: Response): Promise<void> {
     try {
       await this._projectService.archive(body.id).catch((reason) => {
-        //catch is executed only if the promise is rejected with a reason
+        // catch is executed only if the promise is rejected with a reason
         // throw an error using that reason
         throw new Error(reason);
       });

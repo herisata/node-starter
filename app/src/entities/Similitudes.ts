@@ -1,4 +1,4 @@
-import { Column, Entity, Index } from 'typeorm';
+import { Column, Index } from 'typeorm';
 
 @Index('index_similitudes_on_profile_id_and_similar_id', ['profileId', 'similarId'], { unique: true })
 // @Entity('similitudes')

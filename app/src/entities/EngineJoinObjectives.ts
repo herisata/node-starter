@@ -1,4 +1,4 @@
-import { Column, Entity } from 'typeorm';
+import { Column } from 'typeorm';
 
 // @Entity('engine_join_objectives')
 export class EngineJoinObjectives {

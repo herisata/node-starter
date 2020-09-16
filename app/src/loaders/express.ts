@@ -19,7 +19,7 @@ export default async ({ container }: { container: interfaces.Container }): Promi
     // Middleware that transforms the raw string of req.body into json
     app.use(bodyParser.json());
 
-    app.use((req, res, done) => {
+    app.use((req, _res, done) => {
       Logger.info(`[express] Endpoint requested: ${req.originalUrl}`);
       done();
     });
@@ -28,14 +28,16 @@ export default async ({ container }: { container: interfaces.Container }): Promi
   });
   server.setErrorConfig((app) => {
     /// catch 404 and forward to error handler
-    app.use((req, res, next) => {
+    app.use((_req, _res, next) => {
       const err = new Error('Not Found');
-      err['status'] = 404;
-      next(err);
+      next({
+        ...err,
+        status: 404,
+      });
     });
 
     /// error handlers
-    app.use((err, req, res, next) => {
+    app.use((err, _req, res, next) => {
       /**
        * Handle 401 thrown by express-jwt library
        */
@@ -45,7 +47,7 @@ export default async ({ container }: { container: interfaces.Container }): Promi
       return next(err);
     });
 
-    app.use((err, req, res, next) => {
+    app.use((err, _req, res, _next) => {
       res.status(err.status || 500);
       res.json({
         errors: {
@@ -53,7 +55,7 @@ export default async ({ container }: { container: interfaces.Container }): Promi
         },
       });
     });
-    app.use((err, req, res, next) => {
+    app.use((err, _req, res, _next) => {
       Logger.error(err.stack);
       res.status(500).send('Something broke!');
     });

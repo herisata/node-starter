@@ -1,4 +1,4 @@
-import { Column, Entity, Index } from 'typeorm';
+import { Column, Index } from 'typeorm';
 
 @Index('index_keywords_themes_on_theme_id_and_keyword_id', ['themeId', 'keywordId'], { unique: true })
 // @Entity('keywords_themes')

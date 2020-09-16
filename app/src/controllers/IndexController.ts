@@ -13,6 +13,7 @@ export class IndexController implements interfaces.Controller {
   public constructor(@inject(TYPES.ProfileService) profileService: ProfileService) {
     this._profileService = profileService;
   }
+
   /**
    * http://localhost:4000/
    */
@@ -28,7 +29,7 @@ export class IndexController implements interfaces.Controller {
   @httpGet('hello')
   public async hello(): Promise<string> {
     // can return string
-    return `Hello World`;
+    return 'Hello World';
   }
 
   /**
@@ -67,13 +68,14 @@ export class IndexController implements interfaces.Controller {
     @queryParam('start') _start: number,
     @queryParam('count') _count: number,
   ): Promise<PublicProfiles[]> {
-    const start = _start || 0,
-      count = _count || 10;
+    const start = _start || 0;
+    const count = _count || 10;
     try {
       return this._profileService.find(start, count);
     } catch (e) {
       res.status(500);
       res.send(e.message);
+      return [];
     }
   }
 }

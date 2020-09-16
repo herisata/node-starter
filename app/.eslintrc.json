@@ -6,9 +6,36 @@
     "jest": true
   },
   "parser": "@typescript-eslint/parser",
-  "extends": ["plugin:@typescript-eslint/recommended", "prettier/@typescript-eslint", "plugin:prettier/recommended"],
-  "settings": {},
+  "extends": [
+    "airbnb-base",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["./"],
+        "extensions": [".ts"]
+      }
+    }
+  },
   "plugins": ["@typescript-eslint"],
-  "rules": {},
-  "overrides": []
+  "rules": {
+    "import/extensions": "off",
+    "import/prefer-default-export": "off",
+    "class-methods-use-this": "off",
+    "import/no-unresolved": "off",
+    "no-underscore-dangle": ["error", { "allowAfterThis": true }],
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
+  },
+  "overrides": [
+    {
+      "files": "src/entities/**",
+      "rules": {
+        "camelcase": "off"
+      }
+    }
+  ]
 }

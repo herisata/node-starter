@@ -26,9 +26,10 @@ export class ProjectServiceImpl implements ProjectService {
 
   async archive(id: string): Promise<void> {
     const existingProject = await this._projectRepository.findOne(id);
-    if (!existingProject) return Promise.reject(`No project found for id ${id}`);
+    if (!existingProject) return Promise.reject(new Error(`No project found for id ${id}`));
     existingProject.state = 'ARCHIVED'; // TODO: Get all project states and put in separate enum
     existingProject.endAt = new Date(new Date().toLocaleString('fr-FR', { timeZone: 'Europe/Paris' })); // TODO: use a datetime library (momentjs)
     this._projectRepository.save(existingProject);
+    return Promise.resolve();
   }
 }
