@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es6",
     "lib": ["es6"],
-    "types": ["reflect-metadata"],
+    "types": ["reflect-metadata", "jest"],
     "typeRoots": ["./node_modules/@types", "./src/types"],
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,

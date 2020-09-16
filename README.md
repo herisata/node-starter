@@ -60,7 +60,7 @@ phpmyadmin at `localhost:4080` (optionnal)
 - [x] Put documentations on used design patterns : IoC, Data Mapper, Loader, 3-layers,...
 - [x] Create a custom repository for example => [here](app/src/repositories/AdminUsersRepository.ts)
 - [ ] How to deploy the app?
-- [ ] Integrate jest
+- [x] Integrate jest
 - [ ] Simulate a view
 - [x] Document project structure
 - [x] Document migrations
