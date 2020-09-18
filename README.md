@@ -61,8 +61,13 @@ phpmyadmin at `localhost:4080` (optionnal)
 - [x] Put documentations on used design patterns : IoC, Data Mapper, Loader, 3-layers,...
 - [x] Create a custom repository for example => [here](app/src/repositories/AdminUsersRepository.ts)
 - [ ] How to deploy the app?
+- [ ] Handle auth
+- [ ] Handle rights ? Policies
 - [x] Integrate jest
 - [x] Document project structure
 - [x] Document migrations
 - [x] How to create an endpoint => [here](app/src/controllers/)
 - [x] Document folder structure
+- [ ] Set up pubsub internally
+- [ ] Set up task scheduler
+- [ ] Emulate view system (mapper?) Entity => View (a voir: presenter)
