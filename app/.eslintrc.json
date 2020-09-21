@@ -21,6 +21,7 @@
     }
   },
   "plugins": ["@typescript-eslint"],
+  "ignorePatterns": ["build/*"],
   "rules": {
     "import/extensions": "off",
     "import/prefer-default-export": "off",

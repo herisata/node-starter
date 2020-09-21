@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "tsc && node build/index.js",
+    "start": "tsc && NODE_PATH=build/ node build/index.js",
     "start:dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' -r tsconfig-paths/register src/index.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",

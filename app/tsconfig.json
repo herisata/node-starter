@@ -17,6 +17,7 @@
     "esModuleInterop": true,
     "rootDir": "./src/",
     "baseUrl": "./src/",
+    "outDir": "./build/",
     "resolveJsonModule": true
   },
   "include": ["src/**/*.ts"],
